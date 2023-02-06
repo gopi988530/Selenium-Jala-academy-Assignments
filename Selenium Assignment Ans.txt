@@ -1,0 +1,662 @@
+                                                        2. Operations on Web Elements  
+********************************************************************************************************************************
+
+Text Box 
+
+1. How to Type in text box using Selenium Web Driver 
+By using sendKeys() method to send text in Textbox or Text area.
+d.findElement(By.Xpath(“locator”)).sendKeys(“text”));
+
+2. How to get a Text Box value using Selenium Web Driver
+By using getText() method to featch the text
+System.out.println(d.findElement(By.Xpath(“locator”)).sendKeys(“text”));
+
+3. How to read the placeholder value of a Text Box using getAttribute() method 
+System.out.println(d.findElement(By.Xpath(“locator”)). getAttribute());
+
+4. Deleting/clear text from the Text Box 
+By using clear() method to clear text from the Text Box 
+
+5. Check if Text Box is enabled/disabled 
+isEnabled() method: It is used to test whether the element is enabled to perform some action or not.
+d.findElement(By.id("UserName")).isEnabled();
+******************************************************************************************************************************
+ Radio Button / Check Box 
+
+1. Selecting the Radio Button by Label Text / value 
+By using click() method
+driver.findElement(By.id("radiobutton")).click();
+
+2. Find out number of elements in a radio group 
+To Find number of elements in a radio button By using findElements()method
+System.out.println(d.findElements(By.Xpath("radiobutton")).size());
+
+3. Find out all radio button values 
+System.out.println(d.findElements(By.Xpath("radiobutton")).getAttribute());
+
+4. How to get the selected radio button label text? 
+System.out.println(d.findElements(By.id("radiobutton")).getText());
+
+
+5. Check if Radio Button is selected? 
+isSelected() method: It will display TRUE if the element is selected otherwise it will print FALSE.
+driver.findElement(By.id("Sex-Male")).isSelected();
+
+
+6. Check if Radio Button is enabled or disabled?
+isEnabled() method: It is used to test whether the element is enabled to perform some action or not.
+d.findElement(By.id("radiobutton ")).isEnabled();
+*******************************************************************************************************************************
+ Dropdown/List Box/Combo Box 
+  
+1. Print all the options available in the dropdown 
+By using getOptions() method
+
+WebElement sc=driver.findElement(By.xpath(“”));
+List<WebElement>e=sc.getOptions();
+For(WebElement options: e)
+{
+System.out.println(options.getText());
+}
+2. Print first selected option from a dropdown 
+By using getFirstSelectedOption() to selected option from a dropdown
+
+3. Select an option by value from a dropdown 
+To select any option based on value using selectByValue(“value”) method
+
+4. Select an option by visible text from a dropdown 
+To select any option based on visible text By using selectByVisibleText (“VisibleText”) method
+
+5. Select an option by index from a dropdown
+To select any option based on index By using selectByIndex(“indext”) method
+******************************************************************************************************************************
+Links
+
+1. Clicking a link using partialLinkText 
+d. findElement(By. partialLinkText ("partialLink")).click();
+
+2. Clicking a link using link Text 
+d. findElement(By. linkText ("linkTextlocator")).click();
+
+3. Find out all the links in a web page 
+To Find number of elements in a links By using findElements()method
+System.out.println(d.findElements(By.Xpath("//linkslocator")).size());
+
+4. Clicking on an image link
+d.findElements(By.Xpath("//imglocator").click();
+******************************************************************************************************************************
+
+XPath 
+
+1. Read label text and its color 
+String color= d.findElement(By.id("locator")).getCssValue(“color”);
+System.out.println(color);
+
+2. Write an xpath for id, name, className 
+Id: //tagname[@id='attributvalue']
+Name: // tagname [@name='attributvalue']
+className: // tagname [@className ='attributvalue']
+
+3. How to find an element that contains a specific text using contains() 
+Attribute ---> //tagnme[contains(@atttributename,'partial value')]
+Text  ---> //tagnme[contains(text(),'partial text')]
+ 
+4. How to find an element using text() 
+//tagnme[text()='value']
+
+5. How to find an element that starts-with() 
+//tagnme[starts-with(@atttributename,'starting value')]
+
+6. XPath to select following-sibling and preceding 
+All ---> // tagnme [text()=' atttributename ']/following-sibling::li 
+ Single ---> //li[text()='atttributename']/following-sibling::li[2]
+7. XPath to select an element using ancestor, child, parent and descendent 
+parent =//tagname[@attribut='attributename']//parent::div 
+Single =//li[text()='Nokia phone']/following-sibling::li[2]
+8. XPath using OR and AN
+1. And :both are true
+   //input[@name='sex' and @value='1']
+2. OR:Any one true
+   //input[@name='sex' or @value='3']
+   
+ * * *****************************************************************************************************************************
+                                                     3. WebDriver Methods
+*******************************************************************************************************************************
+1. Get ():  Send the URL 
+
+2. GetCurrentUrl (): We can get the current page URL
+
+3. get Title () : To get the current title page
+
+4. getPageSource () : Used to get the Page source of currently opened web page
+
+5. findElement () :   1. This method finds only one element.
+                              2. Returns the first web element out of all the elements found by the same locator.
+							   
+6. findElements () : 1. This method returns the collection of elements matching the locator.
+                              2. Finds and returns a list of web elements.
+								   
+7. getWindowHandle () : 1. To handle single window
+                                      2. Return Type is String
+											 
+8. getWindowHandles () : 1. To Handle Multiple windows
+                                        2. Return Type is Set Interface
+											  
+9. switchTo() :  To switch Focus to one window to another window or One frame to another frame
+
+10. manage() : managing the browsers i.e. maximize the window or Timeouts 
+
+11. driver.navigate().to() : Load a new web page in the current browser window.
+
+12. driver.navigate().back() : Clicking on the back button of any browser.
+
+13. driver.navigate().forward() : Clicking on the forward button of any browser.
+
+14. driver.navigate().refresh() : Refresh the current page.
+
+15. click() : To handling the buttons , links and radio buttons and check boxes
+
+16. sendKeys() : To send the input to the text field
+
+17. getAttribute() : To returns the value of a specified attribute on the element
+
+18. getTagName (): To obtain the value of an attribute in an html document
+
+19. getText (): To Get the text from text field
+
+20. isDisplayed () : To check  the element presence or not in webpage
+
+21. isEnabled() : to verify if the web element is enabled or disabled within the webpage
+
+22. isSelected (): To verify if the web element is selected or not
+
+23. driver.quit() : Closes All windows opened by the Webdriver.
+
+24. driver.close() : Close only the current active window
+
+25. Thread.sleep() : To pause the element by specified time period
+
+26. getSize() : To get size of  the current window
+
+27. getLocation() : to get the relative position of an element where it is rendered on the web page.
+*******************************************************************************************************************************
+                                                 4. Popups/Alerts and Windows
+*******************************************************************************************************************************
+1.	Capturing the alert message using getText()
+ WebDriver driver=new FirefoxDriver();
+driver.get(url);
+driver.switchTo().alert().getText();
+*******************************************************************************************************************************
+2.	Prompt Alert with Text Box to enter the text 
+WebDriver driver=new FirefoxDriver();
+driver.get(url);
+driver.switchTo().alert().sendKeys(“text value”);
+*******************************************************************************************************************************
+3.	Confirmation Alert with Ok and Cancel buttons
+WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// to confirmation of alert with ok
+driver.switchTo().alert().accept();
+// to confirmation of alert with cancel
+driver.switchTo().alert().dismiss();
+*******************************************************************************************************************************
+4. Clicking OK button of the alert using accept()
+WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// to confirmation of alert with ok
+driver.switchTo().alert().accept();
+*******************************************************************************************************************************
+5.Clicking Cancel button of the alert using dismiss()
+WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// to confirmation of alert with cancel
+driver.switchTo().alert().dismiss();
+********************************************************************************************************************************
+6. Handle single window using driver.getWindowHandle()
+ WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// windowhandle method generate only one id value
+driver.switchTo().window(driver.getWindowHandle());
+********************************************************************************************************************************
+7. Handle multiple windows using driver.getWindowHandles()
+ WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// windowhandles method generate multiple alpha numeric id values
+ArrayList<String> al= new ArrayList<String> (driver.getWindowHandles());
+//to switch focus from one window to second window
+  driver.switchTo().window(al.get(1));
+driver.close();
+*******************************************************************************************************************************
+8. Switch to window using driver.switchTo().window()
+ WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// windowhandles method generate multiple alpha numeric id values
+ArrayList<String> al= new ArrayList<String> (driver.getWindowHandles());
+//to switch focus from one window to second window by using window method
+  driver.switchTo().window(al.get(1));
+driver.close();
+*******************************************************************************************************************************
+9. Switch to frame using driver.switchTo().frame()
+WebDriver driver=new FirefoxDriver();
+driver.get(url);
+//to find number of frames on page
+Int totalframes= driver.findElements(By.tagName(“IFrame”).size();
+//to switch focus from one frame to another frame by using frame method
+  driver.switchTo().frame(1);
+  ****************************************************************************************************************************
+10. Switch to popup using driver.switchTo.alert() 
+WebDriver driver=new FirefoxDriver();
+driver.get(url);
+// to switch focus to popup
+driver.switchTo().alert();
+//then we can do actions like accept or dismiss or sendKeys or getText
+********************************************************************************************************************************
+                                     5. Selenium Miscellaneous Scenarios
+*******************************************************************************************************************************
+1. Write a test case to capture the screenshots with WebDriver 
+File screenshotfile = ((TakesScreenshot) d).getScreenshotAs (OutputType.FILE);
+************************************************************************************************************************
+2. Click on an element which is in iframe 
+// Switch to frame
+Driver. Switch To (). Frame (index/web Element)
+d.findElement (By.xpath (“locator”).click () ;
+************************************************************************************************************************
+3. Find out the broken links on a web page 
+
+package Assignment;
+
+import static org.testng.Assert.assertEquals;
+
+import java.net.URL;
+import java.net.URLConnection;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import org.openqa.selenium.By;
+	import org.openqa.selenium.Keys;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+	import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
+	
+	public class BrokenLinksDemo {
+		WebDriver d;
+		
+		@Test
+		public void KeyboardEve() throws Exception {
+			d.get("https://www.selenium.dev/");
+			assertEquals(d.getTitle(),"Selenium");
+			Thread.sleep(2000);
+			List<WebElement> al = d.findElements(By.className("nav-link"));
+			System.out.println("Number of Links :"+al.size());
+			
+			for(WebElement e:al) {
+				String url =e.getAttribute("href");
+				if(url!=null) {
+					URL u = new URL(url);
+					HttpsURLConnection con = (HttpsURLConnection) u.openConnection();
+					con.setConnectTimeout(60000);
+					con.connect();
+					if(con.getResponseCode()==200) {
+						System.out.println("Link :"+u+"------------> is working");
+						
+					}
+					else {
+						System.out.println("Link :"+u+"------------> is NOT working");
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		@BeforeMethod
+		public void setUp() {
+			d = new ChromeDriver();
+			d.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+			d.manage().window().maximize();
+			d.manage().deleteAllCookies();
+			WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(60));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(null));
+		
+	}
+	    @AfterMethod
+	     public void tearDown() throws Exception {
+		
+		  d.quit();
+		
+	}
+
+	}
+
+
+************************************************************************************************************************
+4. Implicit and Explicit wait commands 
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+
+WebDriverwaits wait = new WebDriverwaits (driver, Duration.ofseconds(120));
+
+************************************************************************************************************************
+
+5. Action class with the following operations 
+
+Actions actions = new Actions(WebDriver driver)
+
+A. Keyboard key press event 
+actions.keyDown(WebElement,Keys.SHIFT);
+
+B. Pressing enter button on the key board 
+actions.sendKeys(Keys.ENTER)
+
+C. ClickAndHold event, Drag and Drop 
+actions.ClickAndHold(Source).MoveToElement(target).release().build().perform();
+
+D. MoveToElement, Mouse Hover Event 
+actions.MoveToElement(WebElement target).perform();
+
+E. Double Click event 
+actions.Doubleclick(WebElement target).perform();
+
+************************************************************************************************************************
+6. Web Table operations 
+A. Get row count 
+To fine number of rows in table, we are finding number of tr's in a table
+
+B. Get data from a specific cell 
+To find number of columns in a table, we are finding number of td's in a row.
+
+
+****************************************************************************************************************************
+7. Handling Ajax Auto suggestion 
+
+By using sendKeys() method enter partial value then it will show suggestions 
+By using Keyboard and Mouse events we are handling
+Then locate the list of suggestions and iterate and selected required autosuggestion by cllick() method
+
+
+****************************************************************************************************************************
+8. Select a specific date from a calendar 
+
+package Assignment;
+
+import static org.testng.Assert.assertEquals;
+
+import java.net.URL;
+import java.net.URLConnection;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
+
+public class Datepicker {
+	WebDriver d;
+
+	@Test
+	public void keyboard() throws Exception {
+		///Reference date and month and year
+		String year = "2023";
+		String month="Feb";
+		String date="25";
+		//click on Date bar xpath
+		d.findElement(By.xpath("//input[@id='onward_cal']")).click();
+		
+		
+		while(true) {
+			//xpath for month year field.....
+			String monthyear = d.findElement(By.xpath("//td[@class='monthTitle']")).getText();
+			
+			String[] arr = monthyear.split(" ");  /// DEC 2022 thats the reason split
+			String mon=arr[0];  // month stored in arr[0]
+			String yr=arr[1];   // year stored in arr[1]
+			// compare reference (year) and mon
+			if(mon.equalsIgnoreCase(month) && yr.equals(year)) 
+				break;
+			else 
+				//xpath for > symbol
+				d.findElement(By.xpath("//button[contains(.,'>')]")).click();
+			
+		}
+		// Date selection
+		List<WebElement> alldates = d.findElements(By.xpath("//table[@class='rb-monthTable first last']//td"));
+		for(WebElement elem:alldates) {
+			String dt = elem.getText();
+			if(dt.equals(date)) {
+			elem.click();
+			break;
+			}
+			
+		}
+		
+		
+	}
+
+	@BeforeMethod
+	public void setUp() {
+		d = new ChromeDriver();
+		d.get("https://www.redbus.in/");
+		d.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		d.manage().window().maximize();
+		d.manage().deleteAllCookies();
+		
+
+	}
+
+	@AfterMethod
+	public void tearDown() throws Exception {
+
+		d.quit();
+
+	}
+
+}
+
+*****************************************************************************************************************************
+9. Cookies operations-Adding and Deleting cookies
+driver.manage().deleteAllCookies();
+driver.manage().addCookie(Cookie cookie);
+ ********************************************************************************************************************************
+                                                                   6. TestNG
+***************************************************************************************************************************
+
+1. Know the order of execution of TestNG annotations 
+
+@ Before Suite
+@ Before Test
+@ Before Class 
+@ Before Method 
+@ Test
+@ After Method
+@ After Class
+@ After Test
+@ After Suite
+*****************************************************************************************************************************
+2. Create testing.xml file to run the test cases in a class file 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Default suite" guice-stage="DEVELOPMENT" parallel ="tests">
+  <test thread-count="5" name="sanity test in GC" verbose="2">
+  <parameter name="browser" value ="GC"/>
+    <classes>
+      <class name="Package.ClassName"/>
+          </classes>
+  </test>
+</suite>
+
+*****************************************************************************************************************************
+3. Create a test suite and test groups 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selinium by groups" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="GRP-Sanity " verbose="2">
+    <groups>
+      <run>
+        <include name="Sanity"/>
+        <exclude name="Smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Package.ClassName"/>
+    </classes>
+  </test> 
+</suite> 
+************************************************************************************************************************
+4. List down the assertions and use them in a test case 
+A. Assert Equals: To compare two conditions
+B. Assert True: To expecting true value. Return type is Boolean
+c. Assert False: To expecting false value. 
+D. Assert Fail : To fail the particular step
+*************************************************************************************************************************
+5. Disable or ignore a test from running 
+By using TestNG annotation to skip or ignore the test
+@Test(enabled = false)
+******************************************************************************************************************************
+6. Make one test script dependent on the other and run both of them 
+By using Dependency Test
+A.	Depends Groups
+@Test(dependsonGroups=”Group Name”)
+
+B.	Depends Methods
+@Test(dependsonMethods=”Method Name”)
+
+******************************************************************************************************************************
+
+7. Set priority to all the tests, execute and observe the order of execution 
+By using Priority Test
+@Test (Priority = Priority Number)
+*******************************************************************************************************************************
+8. How to run the test multiple times using invocationCount 
+@Test (invocationCount = Number)
+*******************************************************************************************************************************
+9. Pass parameters to test script 
+@Parameter (“Value”)
+********************************************************************************************************************************
+10. Create data driven framework using DataProvider 
+Public class DataProviderDemo {
+	
+	@Test (dataProvider="LoginDataProvider”, dataProviderClass =CustomDataProvider.class)
+	Public void login Test (String email, String pwd) {
+		System.out.println (email+"           "+pwd);
+		
+	}
+@DataProvider (name="LoginDataProvider")
+	Public 	String [][] getdata(){
+		
+		String [][] data1 = { {"xyz@gmail.com","xyz"}, {"abc@gmail.com","abc"} 
+		String [][] data2 = { {"xyz@gmail.com","xyz"}, {"abc@gmail.com","abc"} 
+		
+		return data;
+	}
+}
+
+******************************************************************************************************************************
+
+11. How to group test cases 
+
+@ Test ( groups = “Group Name”)
+
+**************************************************************************************************************************
+12. Running test cases in parallel 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Default suite" guice-stage="DEVELOPMENT">
+  
+  <test thread-count="5" parallel="tests" name="sanity test in GC">
+    <parameter name="browser" value="GC"/>
+    <classes>
+      <class name="PackageName.ClassName"/>
+    </classes>
+  </test> <!-- sanity test in GC -->
+  <test thread-count="5" parallel="tests" name="Smoke test in Edge">
+    <parameter name="browser" value="Edge"/>
+    <classes>
+      <class name="PackageName.ClassName"/>
+    </classes>
+  </test> 
+ </suite>
+ ************************************************************************************************************************************************************
+13. Running TestNG scripts from command prompt 
+ Step -1:
+Set class path = URL of .class files; URL of .jar files
+
+Step -2: by using command to create windows batch file
+Java org.testng.TestNG. suitename.xml
+**********************************************************************************************************************************************************
+                                                              7. Frame Work
+**********************************************************************************************************************************************************
+15. Know how to debug the Scripts
+1. From the Scripts tab, select Debugger
+2. When a script loads, select to step through the script code using one of the following toolbar buttons
+3. To set a breakpoint to pause the script
+4. Upto break point script will execute continuously after break point script will execute line by line
+4. Click again to remove the breakpoint
+************************************************************************************************************************************************************
+16. Run the scripts in all browsers
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Default suite" guice-stage="DEVELOPMENT">
+  
+  <test thread-count="5" parallel="tests" name="sanity test in GC">
+    <parameter name="browser" value="GC"/>
+    <classes>
+      <class name="PackageName.ClassName"/>
+    </classes>
+  </test> <!-- sanity test in GC -->
+  <test thread-count="5" parallel="tests" name="Smoke test in Edge">
+    <parameter name="browser" value="Edge"/>
+    <classes>
+      <class name="PackageName.ClassName"/>
+    </classes>
+  </test> 
+ </suite>
+ ************************************************************************************************************************************************************
+ 17. Parameterize the scripts using excel, Running the same script with multiple set of test data
+ By using Data Driven Framework by Apache POI libraries to read and wright the multiple set of test data
+ ///path of Excel
+ FileInputStream FIS = new FileInputStream("URL of Excel File");
+ ////Read Book
+ XssfWorkBook wb = new XssfWorkBook(FIS);
+ ////Get sheet
+ XssfSheet s = wb.getsheet("SheetName");
+ ///Get Row, Col, Cell data
+ s.getrow(row index).getcell(cell index).getStringCellvalue();
+ ************************************************************************************************************************************************************
+ 18. Parameterize the scripts using DataProvider
+ Public class DataProviderDemo {
+	
+	@Test (dataProvider="LoginDataProvider”, dataProviderClass =CustomDataProvider.class)
+	Public void login Test (String email, String pwd) {
+		System.out.println (email+"           "+pwd);
+		
+	}
+@DataProvider (name="LoginDataProvider")
+	Public 	String [][] getdata(){
+		
+		String [][] data1 = { {"xyz@gmail.com","xyz"}, {"abc@gmail.com","abc"} 
+		String [][] data2 = { {"xyz@gmail.com","xyz"}, {"abc@gmail.com","abc"} 
+		
+		return data;
+	}
+}
+**************************************************************************************************************************************************************
+
+ 
+ 
+ 
